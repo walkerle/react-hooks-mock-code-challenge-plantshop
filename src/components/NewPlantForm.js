@@ -17,16 +17,19 @@ function NewPlantForm({onFormSubmit}) {
   function handleFormSubmit(e) {
     e.preventDefault();
     
-    const config = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    }
-    fetch(`http://localhost:6001/plants`, config)
-    .then(res => res.json())
-    .then(plantObj => onFormSubmit(plantObj))
+    // const config = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(formData)
+    // }
+    // fetch(`http://localhost:6001/plants`, config)
+    // .then(res => res.json())
+    // .then(plantObj => onFormSubmit(plantObj))
+
+    // refactoring attempt
+    onFormSubmit(formData)
 
     setFormData(initialForm);
   }
