@@ -18,19 +18,21 @@ function PlantPage() {
   }, [])
 
   function onFormSubmit(plantObj) {
+    
     // refactoring attempt
+    const newPlantObj = {...plantObj, price: Number(plantObj.price)}
     const config = {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(plantObj)
+      body: JSON.stringify(newPlantObj)
     }
     fetch(baseUrl, config)
     .then(res => res.json())
     .then(plantObj => setPlants([...plants, plantObj]))
 
-    // refactoring attempt
+    // original
     // setPlants([...plants, plantObj])
   }
 

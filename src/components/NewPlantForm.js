@@ -17,12 +17,14 @@ function NewPlantForm({onFormSubmit}) {
   function handleFormSubmit(e) {
     e.preventDefault();
     
+    // original
+    // const newFormData = {...formData, price: Number(formData.price)}
     // const config = {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json"
     //   },
-    //   body: JSON.stringify(formData)
+    //   body: JSON.stringify(newFormData)
     // }
     // fetch(`http://localhost:6001/plants`, config)
     // .then(res => res.json())
