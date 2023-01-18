@@ -9,6 +9,7 @@ function PlantPage() {
 
   const [plants, setPlants] = useState([]);
   const [searchPlants, setSearchPlants] = useState("");
+  const [deleteId, onDeleteId] = useState("");
 
   useEffect(() => {
     fetch(baseUrl)
@@ -23,12 +24,13 @@ function PlantPage() {
   const plantsToDisplay = plants.filter(plant => {
     return plant.name.toLowerCase().includes(searchPlants.toLowerCase())
   })
+  .filter(plant => plant.id !== deleteId)
 
   return (
     <main>
       <NewPlantForm onFormSubmit={onFormSubmit} />
       <Search searchPlants={searchPlants} onSearchPlants={setSearchPlants} />
-      <PlantList plants={plantsToDisplay} />
+      <PlantList plants={plantsToDisplay} onDeleteId={onDeleteId} />
     </main>
   );
 }
