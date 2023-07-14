@@ -20,20 +20,20 @@ function PlantPage() {
   function onFormSubmit(plantObj) {
     
     // refactoring attempt
-    const newPlantObj = {...plantObj, price: Number(plantObj.price)}
-    const config = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newPlantObj)
-    }
-    fetch(baseUrl, config)
-    .then(res => res.json())
-    .then(plantObj => setPlants([...plants, plantObj]))
+    // const newPlantObj = {...plantObj, price: Number(plantObj.price)}
+    // const config = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(newPlantObj)
+    // }
+    // fetch(baseUrl, config)
+    // .then(res => res.json())
+    // .then(plantObj => setPlants([...plants, plantObj]))
 
     // original
-    // setPlants([...plants, plantObj])
+    setPlants([...plants, plantObj])
   }
 
   const plantsToDisplay = plants.filter(plant => {
